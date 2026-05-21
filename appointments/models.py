@@ -1,4 +1,6 @@
 from django.db import models
+import uuid
+
 
 class Service(models.Model):
 
@@ -27,7 +29,11 @@ class Appointment(models.Model):
     appointment_date = models.DateField()
     appointment_time = models.TimeField()
 
-    turn_code = models.CharField(max_length=10, unique=True)
+    turn_code = models.CharField(
+        max_length=20,
+        unique=True,
+        blank=True
+    )
 
     status = models.CharField(
         max_length=20,
@@ -41,9 +47,13 @@ class Appointment(models.Model):
 
         if not self.turn_code:
 
-            last_appointment = Appointment.objects.all().count() + 1
+            while True:
 
-            self.turn_code = f'B{last_appointment:03d}'
+                code = f'B{uuid.uuid4().hex[:5].upper()}'
+
+                if not Appointment.objects.filter(turn_code=code).exists():
+                    self.turn_code = code
+                    break
 
         super().save(*args, **kwargs)
 
