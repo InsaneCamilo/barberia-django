@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="bg-dark text-white rounded shadow p-5 text-center">
+
+    <h1 class="display-4 fw-bold">
+        Bienvenido a la Barberia
+    </h1>
+
+    <p class="lead mt-3">
+        Sistema de gestión de turnos para barberías
+    </p>
+
+    <a
+        href="/appointments/create/"
+        class="btn btn-warning btn-lg mt-3"
+    >
+        Reservar Turno
+    </a>
+
+</div>
+
+<div class="row mt-5">
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body text-center">
+
+                <h3>
+                    Cortes Modernos
+                </h3>
+
+                <p>
+                    Gestiona servicios y atención de clientes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body text-center">
+
+                <h3>
+                    Turnos Online
+                </h3>
+
+                <p>
+                    Reserva desde cualquier lugar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body text-center">
+
+                <h3>
+                    Gestión Fácil
+                </h3>
+
+                <p>
+                    Controla clientes y tiempos de atención.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

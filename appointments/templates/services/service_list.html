@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>
+        Servicios
+    </h2>
+
+    {% if user.is_authenticated %}
+
+    <a href="/services/create/" class="btn btn-primary">
+        Nuevo Servicio
+    </a>
+
+    {% endif %}
+
+</div>
+
+<div class="row">
+
+    {% for service in object_list %}
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body">
+
+                <h4 class="card-title">
+                    {{ service.name }}
+                </h4>
+
+                <p class="card-text">
+                    Precio: ${{ service.price }}
+                </p>
+
+                <p class="card-text">
+                    Tiempo estimado:
+                    {{ service.estimated_time }} min
+                </p>
+
+                {% if user.is_authenticated %}
+
+                <a
+                    href="/services/{{ service.id }}/update/"
+                    class="btn btn-warning"
+                >
+                    Editar
+                </a>
+
+                <a
+                    href="/services/{{ service.id }}/delete/"
+                    class="btn btn-danger"
+                >
+                    Eliminar
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <p>
+        No hay servicios registrados.
+    </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
