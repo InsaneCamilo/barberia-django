@@ -25,8 +25,11 @@ SECRET_KEY = 'django-insecure-2=6*5o9-k#kia@j=x*y=sys993r_dtr6m^23ck9w@nn15lv4^y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    'barberia-django-oxwz.onrender.com',
+    'localhost',
+    '127.0.0.1'
+]
 
 # Application definition
 
